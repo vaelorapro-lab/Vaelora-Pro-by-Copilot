@@ -56,23 +56,47 @@ body{
   margin-bottom:30px;
 }
 
-/* make the img fill the hero and control focal point */
-.hero-image {
-  position:absolute;
-  inset:0;
-  z-index:0;
-}
-.hero-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;           /* preserve aspect and cover whole area */
-  object-position: right center; /* focal point: right side vertically centered */
-  display:block;
+/* HERO - background-image approach (recommended) */
+.hero {
+  position: relative;
+  min-height: 70vh;              /* larger hero height */
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 30px;
+
+  background-image: url("assets/hero.png"); /* or hero.jpg — match file exactly */
+  background-size: cover;        /* fill container, may crop */
+  background-position: right center; /* prioritize right side (person) vertically centered */
+  background-repeat: no-repeat;
 }
 
-/* overlay and content layering */
-.hero-overlay { /* same overlay as above (reduced opacity) */ }
-.hero-content { position:relative; z-index:2; display:flex; align-items:center; }
+/* If you previously hid the .hero-image <img>, keep it hidden */
+.hero-image { display: none; }
+
+/* reduce overlay opacity so the photo is clearer */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg,
+    rgba(241,237,234,0.28) 0%,   /* lighter than before */
+    rgba(241,237,234,0.18) 40%,
+    rgba(241,237,234,0.06) 100%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
 
 /* Buttons */
 .btn{
