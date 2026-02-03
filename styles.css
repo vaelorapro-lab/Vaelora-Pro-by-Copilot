@@ -56,34 +56,34 @@ body{
   margin-bottom:30px;
 }
 
-/* HERO - background-image approach (recommended) */
+/* HERO - use the actual hero.jpg, reduce overlay opacity, tune position */
 .hero {
   position: relative;
-  min-height: 70vh;              /* larger hero height */
-  height: 70vh;
+  min-height: 75vh;              /* taller hero so cropping is less aggressive */
+  height: 75vh;
   display: flex;
   align-items: center;
   overflow: hidden;
   margin-bottom: 30px;
 
-  background-image: url("assets/hero.png"); /* or hero.jpg — match file exactly */
-  background-size: cover;        /* fill container, may crop */
-  background-position: right center; /* prioritize right side (person) vertically centered */
+  background-image: url("assets/hero.jpg"); /* use the .jpg that exists in assets/ */
+  background-size: cover;        /* cover the container */
+  background-position: 70% center; /* focal point toward the right (adjustable) */
   background-repeat: no-repeat;
 }
 
-/* If you previously hid the .hero-image <img>, keep it hidden */
+/* keep the inline image hidden so only the background is used */
 .hero-image { display: none; }
 
-/* reduce overlay opacity so the photo is clearer */
+/* much lighter overlay so the photo is clear */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
   background: linear-gradient(90deg,
-    rgba(241,237,234,0.28) 0%,   /* lighter than before */
-    rgba(241,237,234,0.18) 40%,
-    rgba(241,237,234,0.06) 100%);
+    rgba(241,237,234,0.16) 0%,
+    rgba(241,237,234,0.12) 40%,
+    rgba(241,237,234,0.03) 100%);
   pointer-events: none;
 }
 
