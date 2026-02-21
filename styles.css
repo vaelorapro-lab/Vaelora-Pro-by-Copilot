@@ -47,27 +47,27 @@ body{
 .site-nav .nav-cta.brown{background:var(--brown); color:var(--white)}
 .site-nav .nav-cta.dark{background:var(--navy); color:var(--white)}
 
-/* HERO - use the actual hero.jpg, remove overlay, add top padding so header doesn't cover head */
+/* HERO - ensure hero sits below the sticky header and uses high-quality background */
 .hero {
   position: relative;
-  min-height: 75vh;
-  height: 75vh;
+  margin-top: 86px; /* reserve space so header doesn't overlap the hero image */
+  min-height: calc(100vh - 86px); /* full viewport height minus header */
+  height: calc(100vh - 86px);
   display:flex;
   align-items:center;
   overflow:hidden;
   margin-bottom:30px;
-  padding-top:86px; /* space for the sticky header so the top of the image is visible */
 
-  background-image: url("assets/hero.jpg"); /* use the .jpg that exists in assets/ */
+  background-image: url("assets/hero.jpg"); /* use the high-res .jpg in assets/ */
   background-size: cover;        /* cover the container */
-  background-position: 70% 35%; /* focal point toward the right and slightly higher */
+  background-position: 80% 50%; /* focal point to the right and vertically centered */
   background-repeat: no-repeat;
 }
 
-/* hide the inline img element - we use background-image for consistent cropping */
+/* hide the inline img element - use background-image for consistent cropping */
 .hero-image { display: none; }
 
-/* remove overlay so image is not foggy */
+/* remove overlay so the image displays crisply */
 .hero-overlay { display: none; }
 
 .hero-content {
